@@ -16,7 +16,7 @@ $nama = $_POST['nama'];
 $email = $_POST['email'];
 $pesan = $_POST['pesan'];
 
-$sql = "INSERT INTO contacts (name, email, pesan) VALUES ('$name', '$email', '$pesan')";
+$sql = "INSERT INTO contacts (name, email, pesan) VALUES ('$nama', '$email', '$pesan')";
 
 if ($conn->query($sql) === TRUE) {
     echo "Data berhasil disimpan!";
