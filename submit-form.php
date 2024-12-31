@@ -3,7 +3,7 @@
 $servername = "localhost";
 $username = "root"; // Ganti sesuai dengan username database Anda
 $password = ""; // Ganti sesuai dengan password database Anda
-$database = "db_portofolio"; // Ganti dengan nama database Anda
+$database = "db_portofolio.sql"; // Ganti dengan nama database Anda
 
 $conn = new mysqli($servername, $username, $password, $database);
 
@@ -18,7 +18,7 @@ $email = $_POST['email'];
 $pesan = $_POST['pesan'];
 
 // Gunakan prepared statement untuk mencegah SQL injection
-$stmt = $conn->prepare("INSERT INTO contacts (name, email, pesan) VALUES (?, ?, ?)");
+$stmt = $conn->prepare("INSERT INTO contacts (nama, email, pesan) VALUES (?, ?, ?)");
 $stmt->bind_param("sss", $name, $email, $pesan);
 
 if ($stmt->execute()) {
