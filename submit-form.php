@@ -12,7 +12,7 @@ if ($conn->connect_error) {
     die("Koneksi gagal: " . $conn->connect_error);
 }
 
-$name = $_POST['nama'];
+$nama = $_POST['nama'];
 $email = $_POST['email'];
 $pesan = $_POST['pesan'];
 
