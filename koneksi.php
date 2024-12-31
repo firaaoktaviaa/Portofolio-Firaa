@@ -3,7 +3,7 @@
 $servername = "localhost";
 $username = "root"; // Ganti sesuai dengan username database Anda
 $password = ""; // Ganti sesuai dengan password database Anda
-$database = "db_portofolio.sql"; // Ganti dengan nama database Anda
+$database = "db_portofolio"; // Ganti dengan nama database Anda
 
 $conn = new mysqli($servername, $username, $password, $database);
 
