@@ -12,17 +12,22 @@ if ($conn->connect_error) {
     die("Koneksi gagal: " . $conn->connect_error);
 }
 
+// Ambil data dari form
 $name = $_POST['nama'];
 $email = $_POST['email'];
 $pesan = $_POST['pesan'];
 
-$sql = "INSERT INTO contacts (name, email, pesan) VALUES ('$name', '$email', '$pesan')";
+// Gunakan prepared statement untuk mencegah SQL injection
+$stmt = $conn->prepare("INSERT INTO contacts (name, email, pesan) VALUES (?, ?, ?)");
+$stmt->bind_param("sss", $name, $email, $pesan);
 
-if ($conn->query($sql) === TRUE) {
-    echo "Data berhasil disimpan!";
+if ($stmt->execute()) {
+    echo "<script>alert('Data berhasil disimpan!'); window.location.href='index.php';</script>";
 } else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
+    echo "<script>alert('Terjadi kesalahan: " . $stmt->error . "'); window.history.back();</script>";
 }
 
+// Tutup koneksi
+$stmt->close();
 $conn->close();
 ?>
