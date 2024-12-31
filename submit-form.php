@@ -12,11 +12,11 @@ if ($conn->connect_error) {
     die("Koneksi gagal: " . $conn->connect_error);
 }
 
-$nama = $_POST['nama'];
+$name = $_POST['nama'];
 $email = $_POST['email'];
 $pesan = $_POST['pesan'];
 
-$sql = "INSERT INTO contacts (name, email, pesan) VALUES ('$nama', '$email', '$pesan')";
+$sql = "INSERT INTO contacts (name, email, pesan) VALUES ('$name', '$email', '$pesan')";
 
 if ($conn->query($sql) === TRUE) {
     echo "Data berhasil disimpan!";
